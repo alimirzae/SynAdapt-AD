@@ -1,0 +1,29 @@
+project:
+  name: "SynAdapt-AD"
+  version: "1.0.0"
+  author: "Ali Mirzaei"
+
+hardware:
+  vram_limit_gb: 4.0
+  use_fp16: true
+  device: "cuda"
+
+data:
+  sample_rate: 16000
+  frame_length_ms: 256
+  hop_length_ms: 64
+  order_max: 32
+
+model:
+  clap_model_name: "laion/clap-htsat-fused"
+  audioldm_model_name: "cvssp/audioldm2"
+  adapter_dim: 64
+  timbral_dim: 7
+
+training:
+  few_shot_k: 10
+  lr: 0.0003
+  batch_size: 16
+  epochs: 50
+  margin_delta: 0.3
+  lambda_boundary: 0.5
